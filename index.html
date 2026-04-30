@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rompiendo Cadenas | Quiz</title>
+    <script>
+      window.META_PIXEL_ID = "1595897778216479";
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+      if (window.META_PIXEL_ID && window.META_PIXEL_ID !== "REEMPLAZA_CON_TU_PIXEL_ID") {
+        fbq("init", window.META_PIXEL_ID);
+        fbq("track", "PageView");
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,6 +37,15 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        alt=""
+        src="https://www.facebook.com/tr?id=1595897778216479&ev=PageView&noscript=1"
+      />
+    </noscript>
     <main class="page">
       <section class="hero" id="welcome-screen">
         <div class="hero__inner">
