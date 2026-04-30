@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rompiendo Cadenas | Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero" id="welcome-screen">
+        <div class="hero__inner">
+          <div class="hero__tree-bg" aria-hidden="true">
+            <div class="tree-fade"></div>
+            <div class="tree-trunk"></div>
+            <div class="tree-branches">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="tree-roots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="hero__copy">
+            <div class="hero__frame">
+              <p class="eyebrow">Rompiendo Cadenas</p>
+              <p class="hero__mini">Quiz de revelacion emocional</p>
+              <h1>Descubre que patron de tu historia familiar sigue influyendo en la forma en que amas</h1>
+              <p class="lead">
+                A veces no repites por mala suerte. Repites porque una herida antigua todavia se
+                siente familiar. Primero respondes. Despues ves tu resultado. Y solo entonces se
+                abre lo que significa.
+              </p>
+              <div class="hero__meta">
+                <span>5 preguntas</span>
+                <span>Resultado inmediato</span>
+                <span>En menos de 2 minutos</span>
+              </div>
+              <div class="hero__actions">
+                <button class="cta hero__cta" data-reveal="quiz-stage">Empezar ahora</button>
+                <p class="hero__note">Un recorrido corto para mostrarte desde donde se repite lo que hoy te duele.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="flow is-hidden" id="quiz-stage">
+        <article class="step-card" id="question-1" data-step-card>
+          <span class="step-badge">Pregunta 1</span>
+          <h2>Cuando eras niña, ¿qué sensación se repetía más dentro de casa?</h2>
+          <p class="step-card__hint">No lo pienses demasiado. Elige lo que más se parece a tu historia.</p>
+          <div class="answers">
+            <button class="answer" data-next="question-2" data-result-key="approval">Tenía que portarme bien para merecer amor.</button>
+            <button class="answer" data-next="question-2" data-result-key="rejection">Había silencios que dolían más que los gritos.</button>
+            <button class="answer" data-next="question-2" data-result-key="abandonment">Me sentía sola incluso cuando alguien estaba.</button>
+            <button class="answer" data-next="question-2" data-result-key="lineage">Vivía alerta porque el ambiente era impredecible.</button>
+          </div>
+          <div class="picked-answer" aria-live="polite"></div>
+        </article>
+
+        <article class="step-card is-hidden" id="question-2" data-step-card>
+          <span class="step-badge">Pregunta 2</span>
+          <h2>¿Cómo recuerdas el amor de tu mamá en tus primeros años?</h2>
+          <p class="step-card__hint">Lo siguiente aparece debajo en cuanto respondas.</p>
+          <div class="answers">
+            <button class="answer" data-next="question-3" data-result-key="approval">Sentía que su amor dependía de cómo me comportaba.</button>
+            <button class="answer" data-next="question-3" data-result-key="rejection">Me quería, pero a veces me sentía más sola que acompañada.</button>
+            <button class="answer" data-next="question-3" data-result-key="lineage">Su propio dolor ocupaba todo el espacio.</button>
+            <button class="answer" data-next="question-3" data-result-key="abandonment">Tuve que volverme fuerte demasiado rápido.</button>
+          </div>
+          <div class="picked-answer" aria-live="polite"></div>
+        </article>
+
+        <article class="step-card is-hidden" id="question-3" data-step-card>
+          <span class="step-badge">Pregunta 3</span>
+          <h2>¿Cuál de estas frases se parece más a tu vida amorosa actual?</h2>
+          <div class="answers">
+            <button class="answer" data-next="question-4" data-result-key="lineage">Confundo intensidad con amor.</button>
+            <button class="answer" data-next="question-4" data-result-key="abandonment">Por no perder a alguien, termino perdiéndome a mí.</button>
+            <button class="answer" data-next="question-4" data-result-key="rejection">Sé que me hace daño, pero me cuesta soltar.</button>
+            <button class="answer" data-next="question-4" data-result-key="approval">Prometo que no se repetirá y vuelve a pasar.</button>
+          </div>
+          <div class="picked-answer" aria-live="polite"></div>
+        </article>
+
+        <article class="step-card is-hidden" id="question-4" data-step-card>
+          <span class="step-badge">Pregunta 4</span>
+          <h2>¿Qué verdad íntima ya no puedes seguir ignorando?</h2>
+          <div class="answers">
+            <button class="answer" data-next="question-5" data-result-key="lineage">Repito la forma en que vi amar en mi familia.</button>
+            <button class="answer" data-next="question-5" data-result-key="abandonment">Busco en otros lo que no recibí en casa.</button>
+            <button class="answer" data-next="question-5" data-result-key="lineage">Hay un patrón de linaje que sigue vivo en mí.</button>
+            <button class="answer" data-next="question-5" data-result-key="rejection">Mi historia sigue afectando a quién elijo.</button>
+          </div>
+          <div class="picked-answer" aria-live="polite"></div>
+        </article>
+
+        <article class="step-card is-hidden" id="question-5" data-step-card>
+          <span class="step-badge">Pregunta 5</span>
+          <h2>¿Qué estás dispuesta a dejar atrás a partir de hoy?</h2>
+          <div class="answers">
+            <button class="answer" data-next="result-card" data-result-key="abandonment">Otra relación que termina igual.</button>
+            <button class="answer" data-next="result-card" data-result-key="approval">Más años culpándome por lo mismo.</button>
+            <button class="answer" data-next="result-card" data-result-key="rejection">Seguir normalizando lo que me duele.</button>
+            <button class="answer" data-next="result-card" data-result-key="lineage">Esperar más tiempo para empezar distinto.</button>
+          </div>
+          <div class="picked-answer" aria-live="polite"></div>
+        </article>
+
+        <article class="step-card step-card--result is-hidden" id="result-card">
+          <span class="step-badge">Tu resultado</span>
+          <div class="result-layout">
+            <div class="result-main">
+              <h2 id="result-title">Estás atrapada en un patrón afectivo que no comenzó contigo</h2>
+              <p id="result-intro">
+                Tus respuestas muestran algo muy concreto: has aprendido a relacionarte desde una
+                herida emocional antigua, no desde una elección completamente libre. Por eso,
+                aunque una parte de ti quiera algo distinto, otra parte sigue reconociendo como
+                familiar aquello que duele, exige, confunde o te hace luchar por amor.
+              </p>
+            </div>
+
+            <aside class="result-highlight">
+              <p class="result-highlight__label">La clave</p>
+              <strong id="result-key">No estás fallando en el amor. Estás repitiendo una memoria emocional que todavía no ha sido comprendida.</strong>
+            </aside>
+          </div>
+
+          <div class="result-body">
+            <p id="result-body-1">
+              Esto suele pasar cuando en la historia familiar hubo ausencia emocional, amor con
+              condiciones, silencios que marcaron, abandono, tensión o necesidad de aprobación.
+            </p>
+            <p id="result-body-2">
+              El problema no es solo la persona que eliges. El problema es el patrón invisible que
+              te hace volver una y otra vez a experiencias que se parecen a lo que ya conociste.
+            </p>
+          </div>
+
+          <blockquote class="result-quote" id="result-quote">
+            Lo que hoy te duele no siempre empezó contigo. Pero sí puede terminar en ti.
+          </blockquote>
+
+          <p class="result-closing" id="result-closing">
+            La buena noticia es que cuando entiendes de dónde viene ese patrón, dejas de culparte y
+            empiezas a ver por dónde romperlo. Y eso que acabas de ver es solo la superficie.
+          </p>
+          <button class="cta" data-reveal="after-result">Quiero entender qué significa esto</button>
+        </article>
+
+        <div class="after-result is-hidden" id="after-result">
+          <article class="content-block">
+            <p class="eyebrow">Lo que significa</p>
+            <h3 id="meaning-title">Lo que no se hace consciente, se repite</h3>
+            <p id="meaning-body">
+              Muchas veces no eliges desde libertad, sino desde heridas tempranas, lealtades
+              invisibles y memorias afectivas que tu cuerpo aprendió como normales.
+            </p>
+          </article>
+
+          <article class="content-block content-block--accent">
+            <p class="eyebrow">La solución</p>
+            <h3>Rompiendo Cadenas</h3>
+            <p>
+              Este ebook está pensado para ayudarte a entender el origen del patrón, dejar de
+              culparte y empezar a cortar la repetición desde la raíz.
+            </p>
+            <ul>
+              <li>Comprendes por qué repites ciertas historias.</li>
+              <li>Identificas heridas heredadas y vínculos invisibles.</li>
+              <li>Das los primeros pasos hacia una forma de amar más libre.</li>
+            </ul>
+            <a class="cta" href="https://pay.hotmart.com/B103627993U?bid=1774412816565">Quiero acceder al ebook</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
