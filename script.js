@@ -91,6 +91,16 @@ const resultQuote = document.getElementById("result-quote");
 const resultClosing = document.getElementById("result-closing");
 const meaningTitle = document.getElementById("meaning-title");
 const meaningBody = document.getElementById("meaning-body");
+const finalOfferLink = document.querySelector('.content-block--accent .cta');
+const quizTracking = {
+  started: false,
+  completed: false
+};
+
+function trackMeta(eventName, params = {}, type = "trackCustom") {
+  if (typeof window.fbq !== "function") return;
+  window.fbq(type, eventName, params);
+}
 
 function getWinningResult() {
   return resultOrder.reduce((bestKey, currentKey) => {
@@ -130,6 +140,17 @@ revealButtons.forEach((button) => {
     const nextId = button.getAttribute("data-reveal");
     if (nextId === "quiz-stage" && welcomeScreen) {
       welcomeScreen.classList.add("is-hidden");
+      if (!quizTracking.started) {
+        quizTracking.started = true;
+        trackMeta("QuizStart", { quiz_name: "Rompiendo Cadenas" });
+        trackMeta("Lead", { content_name: "Rompiendo Cadenas Quiz" }, "track");
+      }
+    }
+    if (nextId === "after-result") {
+      trackMeta("ViewContent", {
+        content_name: "Lo que significa",
+        content_category: "Quiz Reveal"
+      }, "track");
     }
     revealById(nextId);
     button.disabled = true;
@@ -153,6 +174,11 @@ answerButtons.forEach((button) => {
     if (resultKeyName && Object.hasOwn(resultScores, resultKeyName)) {
       resultScores[resultKeyName] += 1;
     }
+    trackMeta("QuizAnswer", {
+      question_id: card?.id || "",
+      answer_text: button.textContent.trim(),
+      result_bucket: resultKeyName || ""
+    });
     if (card) {
       card.classList.add("is-complete");
       const pickedAnswer = card.querySelector(".picked-answer");
@@ -162,7 +188,27 @@ answerButtons.forEach((button) => {
     }
     if (button.getAttribute("data-next") === "result-card") {
       renderResult();
+      if (!quizTracking.completed) {
+        quizTracking.completed = true;
+        const winningKey = getWinningResult();
+        trackMeta("QuizCompleted", {
+          quiz_name: "Rompiendo Cadenas",
+          result_key: winningKey
+        });
+        trackMeta("CompleteRegistration", {
+          content_name: "Rompiendo Cadenas Quiz Result",
+          status: true,
+          result_key: winningKey
+        }, "track");
+      }
     }
     revealById(button.getAttribute("data-next"));
   });
+});
+
+finalOfferLink?.addEventListener("click", () => {
+  trackMeta("InitiateCheckout", {
+    content_name: "Rompiendo Cadenas Ebook",
+    destination: "Hotmart"
+  }, "track");
 });
